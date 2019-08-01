@@ -1,0 +1,3 @@
+speller\functional\SpellerTests.class
+speller\requests\SimpleSpellerTests.class
+speller\requests\SoapRequestTest.class

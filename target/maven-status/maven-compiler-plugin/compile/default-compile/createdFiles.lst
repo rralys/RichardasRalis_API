@@ -1,0 +1,5 @@
+speller\ReadConfig.class
+speller\service\RestSpellerSteps.class
+speller\DTO\SpellerDTO.class
+speller\service\RestSpellerAssertions.class
+speller\service\RestSpellerService.class

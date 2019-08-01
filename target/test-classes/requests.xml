@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Yandex request tests">
+
+    <test name="Yandex request tests">
+        <classes>
+            <class name="speller.requests.SimpleSpellerTests"/>
+            <class name="speller.requests.SoapRequestTest"/>
+        </classes>
+    </test>
+
+</suite>
