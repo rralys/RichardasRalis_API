@@ -8,8 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import speller.ReadConfig;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
@@ -32,8 +30,9 @@ public class SimpleSpellerTests extends ReadConfig {
 
 
     //todo работа с файлом пропертей - это не дело теста. В каждом тестовом классе читать проперти - непозволительная роскошь
-    //убери в отдельный класс-обработчик пропетрей, с геттерами типа getDomain()
-    private void getEndpoints() {
+    //убери в отдельный класс-обработчик пропетрей, с геттерами типа getDomain() — готово.
+
+/*    private void getEndpoints() {
         try (FileInputStream file = new FileInputStream(propertiesPath + "/config.properties")) {
             property.load(file);
 //кстати, отдельные перменные для каждой проперти там вообще будут лишние
@@ -46,14 +45,18 @@ public class SimpleSpellerTests extends ReadConfig {
         } catch (IOException e) {
             System.err.println("Property file is not found.");
         }
-    }
+    }*/
 
     @BeforeMethod
     public void setup() {
         REQUEST_SPECIFICATION = new RequestSpecBuilder()
                 .addFilter(new RequestLoggingFilter())
                 .addFilter(new ResponseLoggingFilter()).build();
-        getEndpoints();
+
+        ReadConfig config = new ReadConfig();
+        domain = config.getDomain();
+        checkText = config.getCheckTextEndpoint();
+        checkTexts = config.getCheckTextsEndpoint();
     }
 
     @Test(description = "Verify corrections for a wrong word")

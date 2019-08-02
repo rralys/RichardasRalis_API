@@ -32,4 +32,9 @@ public class RestSpellerService extends ReadConfig {
         return specification.get(uri);
     }
 
+    public int getResponseCode(String uri) {
+        RequestSpecification specification = given(REQUEST_SPECIFICATION);
+
+        return specification.get(uri).getStatusCode();
+    }
 }

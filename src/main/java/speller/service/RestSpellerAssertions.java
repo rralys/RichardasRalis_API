@@ -38,4 +38,24 @@ public class RestSpellerAssertions {
         assertTrue(textsAnswer[0][index].getS().contains(text), "No suggestions");
     }
 
+    public void assertTextEndpointReturnsCorrectResponseCode(RestSpellerService service) {
+        assertEquals(service
+                .getResponseCode(service.getCheckTextEndpoint()), 200);
+    }
+
+    public void assertTextsEndpointReturnsCorrectResponseCode(RestSpellerService service) {
+        assertEquals(service
+        .getResponseCode(service.getCheckTextsEndpoint()), 200);
+    }
+
+    public void assertTextsCorrectionRequestAre(String ... results) {
+        for (String result : results) {
+            assertTextCorrectionRequest(result);
+        }
+    }
+
+    public void assertNumberOfCorrectionsIsNotZero() {
+        boolean ifGreaterZero = textAnswer[0].getS().size() > 0;
+        assertTrue(ifGreaterZero);
+    }
 }

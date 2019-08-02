@@ -27,4 +27,20 @@ public class ReadConfig {
         }
     }
 
+    public ReadConfig() {
+        getDataFromProperties();
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public String getCheckTextEndpoint() {
+        return domain.concat(checkTextEndpoint);
+    }
+
+    public String getCheckTextsEndpoint() {
+        return domain.concat(checkTextsEndpoint);
+    }
+
 }
