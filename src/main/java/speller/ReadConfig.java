@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+//так вот же это класс. Комментарии по нему написала в SimpleSpellerTests.class
 public class ReadConfig {
     protected Properties property = new Properties();
 

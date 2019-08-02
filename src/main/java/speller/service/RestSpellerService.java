@@ -17,7 +17,7 @@ public class RestSpellerService extends ReadConfig {
     public RestSpellerService() {
 
         getDataFromProperties();
-
+//todo добавь сюда еще проверкуЮ что сервис должен возвращать статус 200
         REQUEST_SPECIFICATION = new RequestSpecBuilder()
                 .setBaseUri(domain)
                 .addFilter(new RequestLoggingFilter())

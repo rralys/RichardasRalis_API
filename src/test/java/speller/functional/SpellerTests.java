@@ -5,6 +5,7 @@ import speller.DTO.SpellerDTO;
 import speller.service.RestSpellerAssertions;
 import speller.service.RestSpellerSteps;
 
+//todo допиши еще один тест с DataProvider, пожалуйста
 public class SpellerTests {
     @Test(description = "Verify that checkText endpoint returns correct suggestions")
     void verifyCorrectSuggestionsForText() {
@@ -13,6 +14,8 @@ public class SpellerTests {
 
         RestSpellerAssertions result = new RestSpellerAssertions(speller);
         result.assertRightInitialWord("datea");
+
+        //эти три метода можно заменить одним assertTextsCorrectionRequestAre("data","dates", "date")..
         result.assertTextCorrectionRequest("data");
         result.assertTextCorrectionRequest("dates");
         result.assertTextCorrectionRequest("date");

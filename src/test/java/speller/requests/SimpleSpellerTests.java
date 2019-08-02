@@ -17,6 +17,9 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 
+
+//на лекции такие тестф бфли для примера возможностей RestAssured, в домашке можно было не делать.
+//но хорошо, что есть :)
 public class SimpleSpellerTests extends ReadConfig {
 
     private RequestSpecification REQUEST_SPECIFICATION;
@@ -27,10 +30,15 @@ public class SimpleSpellerTests extends ReadConfig {
     private String checkText;
     private String checkTexts;
 
+
+    //todo работа с файлом пропертей - это не дело теста. В каждом тестовом классе читать проперти - непозволительная роскошь
+    //убери в отдельный класс-обработчик пропетрей, с геттерами типа getDomain()
     private void getEndpoints() {
         try (FileInputStream file = new FileInputStream(propertiesPath + "/config.properties")) {
             property.load(file);
+//кстати, отдельные перменные для каждой проперти там вообще будут лишние
 
+            //интрефес, примерно, такой getPropertyByName("я_пропертя"); getDomain()
             domain = property.getProperty("domain");
             checkText = domain + property.getProperty("checkTextEndpoint");
             checkTexts = domain + property.getProperty("checkTextsEndpoint");
